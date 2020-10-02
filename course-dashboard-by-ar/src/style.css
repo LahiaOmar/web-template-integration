@@ -1,0 +1,40 @@
+body{
+  margin : 0px;
+  padding: 0px;
+  font-family: 'Inter', sans-serif;
+}
+
+.container{
+  display: flex;
+  width: calc(100vw);
+  height: calc(100vh);
+}
+
+/* navigation panel component */
+#navigation-panel {
+  width: 272px;
+}
+
+#logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo > div {
+  margin-left : 16px;
+}
+#logo_company-name{
+  color : #5E81F4;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 600;
+}
+/* CoursesBoard component */
+#coursesBoard{
+
+}
+
+/* UserIngormation panel component */
+#userInformation{
+  width: 284px;
+}

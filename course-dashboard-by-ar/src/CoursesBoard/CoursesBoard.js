@@ -5,7 +5,7 @@ import Course from '../Course'
 
 const CoursesBoard = ()=>{
   return (
-    <div>
+    <div id="coursesBoard">
       CoursesBoard
       <header>
         <SearchBar />
