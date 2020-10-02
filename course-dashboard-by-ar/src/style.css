@@ -77,6 +77,40 @@ body{
   line-height: 19.39px;
 }
 
+#upgrade_button{
+  width: 192px;
+  height: 274px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+#upgrade_button button{
+  width: 144px;
+  height: 48px;
+  color: white;
+  background-color: #5E81F4;
+  border-radius: 10px;
+  border-color: transparent;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+.upgrade_button__bgimg{
+  position: absolute;
+  z-index: -1;
+  height: 232px;
+  margin-top: 33px;
+}
+.upgrade_button_txt p{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #778DAD;
+  text-align: center;
+}
 /* CoursesBoard component */
 #coursesBoard{
 
