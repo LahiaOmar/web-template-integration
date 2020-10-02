@@ -12,6 +12,9 @@ body{
 
 /* navigation panel component */
 #navigation-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 272px;
 }
 
@@ -28,6 +31,19 @@ body{
   font-size: 22px;
   line-height: 26px;
   font-weight: 600;
+}
+
+#join_button button{
+  width: 192px;
+  height: 40px;
+  background-color: #5E81F4;
+  color: white;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19.36px;
+  border-radius: 14px;
+  border-color: transparent;
 }
 /* CoursesBoard component */
 #coursesBoard{
