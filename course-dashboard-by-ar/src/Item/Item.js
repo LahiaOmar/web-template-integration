@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Item = ()=>{
+const Item = ({svg, text})=>{
   return (
-    <div>
-      Item
+    <div className="menu__item">
+      <div className="menu__item__img"> 
+      <img src={svg}/>
+      </div>
+      <div className="menu__item__text">
+        <a>{text}</a>
+      </div>
     </div>
   )
 }
