@@ -8,6 +8,7 @@ body{
   display: flex;
   width: calc(100vw);
   height: calc(100vh);
+  background-color: #F5F5FB;
 }
 
 /* navigation panel component */
@@ -16,6 +17,7 @@ body{
   flex-direction: column;
   align-items: center;
   width: 272px;
+  background-color: white;
 }
 
 #logo{
@@ -113,7 +115,42 @@ body{
 }
 /* CoursesBoard component */
 #coursesBoard{
+  width: 100%;
+}
 
+#header-board{
+  display: flex;
+  justify-content: space-between;
+}
+
+#search-board{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width : 472px;
+  height: 56px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#search-board__input{
+  width: 100%;
+  height: 100%;
+  border : none;
+  border-style: none;
+  background-image: url(./SearchBar/search.svg);
+  background-repeat: no-repeat;
+  background-position: 9% 50%;
+  padding-left: 72px;
+  border-radius: 10px;
+}
+
+#search-board__input::placeholder{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: #CCD6E8;
 }
 
 /* UserIngormation panel component */

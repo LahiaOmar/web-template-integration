@@ -1,9 +1,10 @@
 import React from 'react'
+import notificationIcone from './notificationIcone.png'
 
 const Notifications = ()=>{
   return (
-    <div>
-      Notifications
+    <div id="notification"> 
+      <img src={notificationIcone} id="notification__icone"/>
     </div>
   )
 }

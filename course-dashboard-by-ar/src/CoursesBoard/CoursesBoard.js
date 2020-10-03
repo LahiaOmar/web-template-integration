@@ -6,8 +6,7 @@ import Course from '../Course'
 const CoursesBoard = ()=>{
   return (
     <div id="coursesBoard">
-      CoursesBoard
-      <header>
+      <header id="header-board">
         <SearchBar />
         <Notifications />
       </header>
