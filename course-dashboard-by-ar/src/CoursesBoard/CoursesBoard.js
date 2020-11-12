@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../SearchBar'
 import Notifications from '../Notifications'
-import Course from '../Course'
+import Courses from '../Courses'
 
 const CoursesBoard = ()=>{
   return (
@@ -10,9 +10,7 @@ const CoursesBoard = ()=>{
         <SearchBar />
         <Notifications />
       </header>
-      <div id="courses">
-        <Course />
-      </div>
+      <Courses />
     </div>
   )
 }
