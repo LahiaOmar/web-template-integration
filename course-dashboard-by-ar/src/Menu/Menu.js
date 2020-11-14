@@ -10,7 +10,7 @@ const Menu = () => {
   return (
     <div id="menu">
       <MenuItem text={"Dashboard"} svg={dashboard} />
-      <MenuItem text={"Allcourses"} svg={allcourses} />
+      <MenuItem text={"Allcourses"} svg={allcourses} isActive />
       <MenuItem text={"Resources"} svg={resources} />
       <MenuItem text={"Friends"} svg={friends} />
       <MenuItem text={"Chats"} svg={chats} />

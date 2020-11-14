@@ -1,8 +1,10 @@
 import React from 'react'
 
-const MenuItem = ({ svg, text }) => {
+const MenuItem = ({ svg, text, isActive }) => {
+  let className = "menu__item"
+  className += (isActive) ? " menu-active" : ""
   return (
-    <div className="menu__item">
+    <div className={className}>
       <div className="menu__item__img">
         <img src={svg} />
       </div>
