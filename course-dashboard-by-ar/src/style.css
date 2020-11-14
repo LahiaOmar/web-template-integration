@@ -274,6 +274,7 @@ body{
   display: grid;
   grid-template: auto auto / auto;
   grid-gap: 20px;
+  width: 260px;
 }
 
 .item-container > p {
@@ -295,6 +296,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 260px;
 }
 
 .item-logo {
@@ -303,7 +305,6 @@ body{
   align-items: center;
   justify-content: center;
   display: flex;
-  background-color: aliceblue;
   border-radius: 6px;
 }
 .item-title{
