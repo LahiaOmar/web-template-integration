@@ -14,9 +14,9 @@ const Courses = () => {
       <div id="courses__header">
         <h2>All Courses</h2>
         <div id="courses__header__nav">
-          <a href="#">Ongoing</a>
-          <a href="#">Favorite</a>
-          <a href="#">Complete</a>
+          <a href="#" className="nav-menu active">Ongoing</a>
+          <a href="#" className="nav-menu">Favorite</a>
+          <a href="#" className="nav-menu">Complete</a>
         </div>
       </div>
       <div id="course-list">

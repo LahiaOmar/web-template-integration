@@ -166,13 +166,33 @@ body{
   display: flex;
   justify-content: space-between;
 }
+#courses__header > h2 {
+  color : rgba(1,31,59,1);
+}
 #courses__header__nav {
   display : flex;
   justify-content: space-between;
   width: 250px;
 }
-#courses__header__nav > a{
+.nav-menu{
   text-decoration: none;
+  color : rgba(118,132,146,0.8);
+}
+.active{
+  color : #5E81F4;
+}
+.active::after{
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 50%;
+  top:50%;
+  width: 18px;
+  height: 2px;
+  position: relative;
+  transform: translate(-50%,0);
+  background: #5E81F4;
+  border-radius: 12px;
 }
 #course-list{
   display : grid;
