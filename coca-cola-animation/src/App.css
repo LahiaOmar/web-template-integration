@@ -56,6 +56,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  left: 60%; 
+  opacity: 0;
 }
 
 .logo{
@@ -65,6 +67,11 @@
 
 .bottle{
   height: 400px;
+}
+
+.not-visible{
+  visibility: hidden;
+  width: 0px;
 }
 
 .information-container{
@@ -121,24 +128,40 @@
   padding: 10px;
 }
 
+.animation-ri-mid{
+  animation: slide-ri-mid 1s linear forwards;
+}
+
+.animation-mid-le{
+  animation : slide-mid-le 1s linear forwards
+}
+
+.not-visible{
+  display: none;
+}
+
 @keyframes slide-ri-mid{
   from {
-    left:60%;
-    opacity: 0;
+    left : 60%;
+    opacity : 0;
   }
   to {
-    left: 0%;
-    opacity: 1;
+    left : 0%;
+    opacity : 1;
   }
 }
 
 @keyframes slide-mid-le{
-  from{
-    left: 0%;
-    opacity: 1;
+  0% {
+    left : 0%;
+    opacity : 1;
   }
-  to{
+  99%{
     left : -60%;
+    opacity : 0;
+  }
+  100%{
+    left: 60%;
     opacity: 0;
   }
 }

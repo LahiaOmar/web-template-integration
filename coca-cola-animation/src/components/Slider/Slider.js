@@ -34,65 +34,77 @@ const data = [
     description: "Newest flavor to join the Coke family with a new twist on delicious."
   }
 ]
-function* generate() {
-  let i = 0;
-  while (true) {
-    yield i;
-    i += 1;
-  }
-}
-const INIT_GEN = 0
-const nextInd = generate()
-// something wrong here !
+
 function Slider() {
-  console.log("load class/function/components")
-  const [slide, setSlide] = React.useState(data[0])
-  const bottleRef = React.useRef()
-  const textInformationRef = React.useRef()
+  const [currentData, setCurrentData] = React.useState({
+    current: data[0],
+    index: 0,
+  })
+  const [slides, setSlides] = React.useState(
+    [
+      { animation: 'animation-ri-mid' },
+      { animation: '' },
+      { animation: '' }
+    ]
+  )
 
-  const next = () => {
-    const index = nextInd.next().value
-    console.log("ind ", index)
-    bottleRef.current.style.animation = 'slide-mid-le 1s'
-    setSlide(data[index % data.length])
+  const nextSlide = () => {
+    const lastSlidesState = [...slides]
+    lastSlidesState.forEach((slide, ind) => {
+      if (ind === currentData.index) {
+        // new slide
+        slide.animation = "animation-mid-le"
+      }
+    })
+    setSlides(lastSlidesState)
+    setTimeout(() => {
+      setCurrentData({
+        current: data[(currentData.index + 1) % data.length],
+        index: (currentData.index + 1) % 3
+      })
+    }, 1000)
   }
-
-  // React.useEffect(() => {
-
-  // }, [slide])
 
   React.useEffect(() => {
-    if (bottleRef.current) {
-      bottleRef.current.style.animation = 'slide-ri-mid 1s'
-    }
-  }, [])
-
-  if (slide === null)
-    return <div>is Loading ...</div>
+    const lastSlidesState = [...slides]
+    lastSlidesState.forEach((slide, ind) => {
+      if (ind === currentData.index) {
+        slide.animation = "animation-ri-mid"
+      }
+    })
+    setSlides(lastSlidesState)
+  }, [currentData])
 
   return (
     <div id="slider">
-      <div style={{ background: slide.bg }} id="slider-box">
+      <div style={{ background: currentData.current.bg }} id="slider-box">
         <div className="img-containers">
           <div className="logo-container">
             <img src={logo} className="logo" />
           </div>
-          <div className="bottle-container" ref={bottleRef}>
-            <img src={slide.img} className="bottle" />
-          </div>
+          {
+            slides.map((element, ind) => {
+              const img = ind === currentData.index ? currentData.current.img : null
+              return (
+                <div className={`bottle-container ${element.animation}`} >
+                  <img src={img} className="bottle" />
+                </div>
+              )
+            })
+          }
         </div>
         <div className="information-container">
           <div className="slide-information">
-            <p className="bottle-name">{slide.name}</p>
-            <p className="bottle-description">{slide.description}</p>
+            <p className="bottle-name">{currentData.current.name}</p>
+            <p className="bottle-description">{currentData.current.description}</p>
           </div>
           <div className="slide-btn">
             <img className="slide-btn-img" src={nextBg} />
-            <p onClick={(e) => next()} className="slide-btn-text">Next</p>
+            <p onClick={(e) => nextSlide()} className="slide-btn-text">Next</p>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
