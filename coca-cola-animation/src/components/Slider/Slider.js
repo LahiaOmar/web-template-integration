@@ -36,71 +36,55 @@ const data = [
 ]
 
 function Slider() {
-  const [currentData, setCurrentData] = React.useState({
-    current: data[0],
-    index: 0,
+  const [state, setState] = React.useState({
+    current: {
+      img: data[0],
+      bottleAnimation: 'animation-ri-mid',
+      informationAnimation: 'animation-top-mid'
+    },
+    index: 0
   })
-  const [slides, setSlides] = React.useState(
-    [
-      { animation: 'animation-ri-mid' },
-      { animation: '' },
-      { animation: '' }
-    ]
-  )
-
   const nextSlide = () => {
-    const lastSlidesState = [...slides]
-    lastSlidesState.forEach((slide, ind) => {
-      if (ind === currentData.index) {
-        // new slide
-        slide.animation = "animation-mid-le"
-      }
-    })
-    setSlides(lastSlidesState)
+
+    const lastState = { ...state }
+    lastState.current.bottleAnimation = "animation-mid-le"
+    lastState.current.informationAnimation = "animation-mid-down"
+    setState(lastState)
     setTimeout(() => {
-      setCurrentData({
-        current: data[(currentData.index + 1) % data.length],
-        index: (currentData.index + 1) % 3
-      })
-    }, 1000)
+      const lastState = { ...state }
+      lastState.current.img = data[(lastState.index + 1) % data.length]
+      lastState.index += 1
+      setState(lastState)
+    }, 500)
   }
 
   React.useEffect(() => {
-    const lastSlidesState = [...slides]
-    lastSlidesState.forEach((slide, ind) => {
-      if (ind === currentData.index) {
-        slide.animation = "animation-ri-mid"
-      }
-    })
-    setSlides(lastSlidesState)
-  }, [currentData])
+    const lastState = { ...state }
+    lastState.current.bottleAnimation = "animation-ri-mid"
+    lastState.current.informationAnimation = "animation-top-mid"
+    setState(lastState)
+  }, [state.current.img])
 
   return (
     <div id="slider">
-      <div style={{ background: currentData.current.bg }} id="slider-box">
+      <div style={{ background: state.current.img.bg }} id="slider-box">
         <div className="img-containers">
           <div className="logo-container">
             <img src={logo} className="logo" />
           </div>
-          {
-            slides.map((element, ind) => {
-              const img = ind === currentData.index ? currentData.current.img : null
-              return (
-                <div className={`bottle-container ${element.animation}`} >
-                  <img src={img} className="bottle" />
-                </div>
-              )
-            })
-          }
+          <div className={`bottle-container ${state.current.bottleAnimation}`} >
+            <img src={state.current.img.img} className="bottle" />
+          </div>
         </div>
         <div className="information-container">
-          <div className="slide-information">
-            <p className="bottle-name">{currentData.current.name}</p>
-            <p className="bottle-description">{currentData.current.description}</p>
+          <div
+            className={`slide-information ${state.current.informationAnimation}`} >
+            <p className="bottle-name">{state.current.img.name}</p>
+            <p className="bottle-description">{state.current.img.description}</p>
           </div>
           <div className="slide-btn">
             <img className="slide-btn-img" src={nextBg} />
-            <p onClick={(e) => nextSlide()} className="slide-btn-text">Next</p>
+            <p onClick={() => nextSlide()} className="slide-btn-text">Next</p>
           </div>
         </div>
       </div>
